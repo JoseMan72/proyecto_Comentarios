@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Formulario</title>
+</head>
+<body>
+   <h1>Formulario</h1>
+   <a href="{% url 'lista_comentarios' %}">Lista de comentarios</a>
+   <form action="{% url 'confirmacion' %}" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Enviar</button>
+   </form>
+</body>
+</html>
