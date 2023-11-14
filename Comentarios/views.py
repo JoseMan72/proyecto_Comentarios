@@ -14,19 +14,20 @@ class Formulario(View):
    def get(self, request):
       form = ComentarioForm()
       return render(request, 'Comentarios/formulario.html', {'form': form})
-   
-   def post(self, request):
-      form = ComentarioForm(request.POST)
-      if form.is_valid():
-         form.save()
-         return render(request, 'Comentarios/confirmacion.html')
-      return render(request, 'Comentarios/formulario.html', {'form': form})
 
 def Lista_comentarios(request):
    comentarios = Comentario.objects.all()
    return render(request, 'Comentarios/lista_comentarios.html', {'comentarios': comentarios})
 
-def confirmacion(request):
-   # mostrar los datos del comentario añadido
-   comentario = Comentario.objects.last()
-   return render(request, 'Comentarios/confirmacion.html', {'comentario': comentario})
+class Confirmacion(View):
+   def post(self, request):
+      form = ComentarioForm(request.POST)
+      if form.is_valid():
+         form.save()
+         comentario = Comentario.objects.last()
+         return render(request, 'Comentarios/confirmacion.html', {'form': form, 'comentario': comentario})
+      return render(request, 'Comentarios/formulario.html', {'form': form})
+
+   def get(self, request):
+      form = ComentarioForm()
+      return render(request, 'Comentarios/confirmacion.html', {'form': form})

@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Confirmación</title>
-</head>
-<body>
-   <h1>Todo correcto</h1>
-   <a href="{% url 'lista_comentarios' %}">Lista de comentarios</a>
-   <br>
-   <br>
-   <a href="{% url 'formulario' %}">Nuevo comentario</a>
-   <br>
-   <br>
-   <h2>Comentario enviado</h2>
-   <p>Nombre: {{ comentario.nombre }}</p>
-   <p>Email: {{ comentario.correo_electronico }}</p>
-   <p>Comentario: {{ comentario.texto }}</p>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Confirmación</title>
+	</head>
+	<body>
+		<h1>Todo correcto</h1>
+		<a href="{% url 'lista_comentarios' %}">Lista de comentarios</a>
+		<br />
+		<br />
+		<a href="{% url 'formulario' %}">Nuevo comentario</a>
+		<br />
+		<br />
+		<h2>Comentario enviado</h2>
+		<ul>
+			<li>Nombre: {{ comentario.nombre }}</li>
+			<li>Email: {{ comentario.correo_electronico }}</li>
+			<li>Comentario: {{ comentario.texto }}</li>
+		</ul>
+	</body>
 </html>
