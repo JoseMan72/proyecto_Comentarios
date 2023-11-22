@@ -8,10 +8,10 @@
 <body>
    <h1>Formulario</h1>
    <a href="{% url 'lista_comentarios' %}">Lista de comentarios</a>
-   <form action="{% url 'confirmacion' %}" method="post">
+   <form action="{% url 'formulario' %}" method="POST">
       {% csrf_token %}
       {{ form.as_p }}
-      <button type="submit">Enviar</button>
+      <input type="submit" value="Enviar">
    </form>
 </body>
 </html>

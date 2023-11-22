@@ -12,9 +12,7 @@
    <ul>
       {% for comentario in comentarios %}
       <li>
-         Nombre: {{ comentario.nombre }} <br>
-         Email: {{ comentario.correo_electronico }} <br>
-         Comentario: {{ comentario.texto }} <br>
+         <a href="{% url 'comentario_edit' comentario.pk %}">{{ comentario.nombre }}</a>
          <br>
       </li>
       {% empty %}
